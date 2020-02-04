@@ -36,7 +36,6 @@ const OurWorkImg = styled(animated.div)`
         background-color: transparent; 
     }
   `}
-
 `;
 const Scroll = styled(animated.div)`
   width: auto;
@@ -83,7 +82,6 @@ const ScrollDownImgOverlayer = styled.div`
     position: relative;
     top: 0;
   }
-
 `;
 export default () => {
   const [{ offset }, set] = useSpring(() => ({ offset: 0, config: config.molasses }));
@@ -128,7 +126,6 @@ export default () => {
               <ScrollImg/>
             </Scroll>
           </OurWorkImg>
-  
           <ServicesWrapper 
             style={{
               transform: offset.interpolate(hScroll2),
@@ -136,7 +133,6 @@ export default () => {
           >
             <Services />
           </ServicesWrapper>
-  
         </ParallaxWrapper>
     </>
   );
