@@ -41,7 +41,6 @@ const Scroll = styled(animated.div)`
   width: auto;
   height: 500px;
   min-height: 500px;
-
 `;
 const ServicesWrapper = styled(animated.div)`
   position: absolute;
@@ -85,7 +84,7 @@ const ScrollDownImgOverlayer = styled.div`
 `;
 export default () => {
   const [{ offset }, set] = useSpring(() => ({ offset: 0, config: config.molasses }));
-  const Rotate = i => `rotate(${i * 0.02}deg)`;
+  const Rotate = i => `rotate(${i * 0.2}deg)`;
   const hScroll = i => `translateX(-${i * (window.innerWidth > 760 ? 0.1 : 0.2)}px)`;
   const vScroll = i => `translateY(${i * 0.05}px)`;
   const hScroll2 = i => `translate3d(${i * 0.02}px, ${i * 0.05}px, 0)`;
@@ -112,7 +111,6 @@ export default () => {
             />
             <div className="Overlayer"></div>
           </ScrollDownImgOverlayer>
-  
           <OurWorkImg
           style={{
             transform: offset.interpolate(vScroll),

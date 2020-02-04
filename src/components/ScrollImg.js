@@ -21,7 +21,7 @@ const FImg = styled.img`
   height: 500px;
   min-height: 500px;
   width: auto;
-  margin: 0 25px 0 50vw;
+  margin: 0 25px 0 0;
   ${respondTo.S`
   margin: 0 25px 0 0;
   `}

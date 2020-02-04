@@ -7,22 +7,22 @@ import Footer from '../components/Footer';
 import {respondTo} from '../components/respondTo';
 import ParallaxHome from '../components/ParallaxHome';
 
-const GlobalWrapper = styled.div`
+const ParallaxWrapper = styled.div`
   background: #0E0E0E;
-  height: calc(1500px + 100vh);
+  height: 1500px;
   position: relative;
   transition: 0.1s;
   ${respondTo.S`
-      height: calc(1350px + 100vh);
+      height: 1350px;
   `}
   ${respondTo.M`
-      height: calc(1670px + 100vh);
+      height: 1670px;
   `}
   ${respondTo.ML`
-      height: calc(1970px + 100vh);
+      height: 970px;
   `}
   ${respondTo.L`
-    height: calc(3620px + 100vh);
+    height: 3620px;
   `}
 `;
 const VideoWrapper = styled.div`
@@ -90,9 +90,9 @@ export default () => {
         </video> 
         <TitleTop title="ainsley studio" subTitle1="photographers" subTitle2="directors" subTitle3="digital content creators"/>
       </VideoWrapper>
-      <GlobalWrapper >
+      <ParallaxWrapper >
         <ParallaxHome />
-      </GlobalWrapper>
+      </ParallaxWrapper>
       <BottomWrapper>
         <Social>
           <button><FaFacebookF className="socialLogo"/></button>
