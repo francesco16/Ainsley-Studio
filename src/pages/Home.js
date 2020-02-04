@@ -13,16 +13,16 @@ const GlobalWrapper = styled.div`
   position: relative;
   transition: 0.1s;
   ${respondTo.S`
-      height: calc(1350px + 100vh);
+      height: 1350px;
   `}
   ${respondTo.M`
-      height: calc(1670px + 100vh);
+      height: 1670px;
   `}
   ${respondTo.ML`
-      height: calc(1970px + 100vh);
+      height: 1970px;
   `}
   ${respondTo.L`
-    height: calc(3620px + 100vh);
+    height: 3620px;
   `}
 `;
 const VideoWrapper = styled.div`
