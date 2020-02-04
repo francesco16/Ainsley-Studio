@@ -36,7 +36,6 @@ const OurWorkImg = styled(animated.div)`
         background-color: transparent; 
     }
   `}
-
 `;
 const Scroll = styled(animated.div)`
   width: auto;
