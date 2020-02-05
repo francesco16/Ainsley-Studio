@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import {respondTo} from './respondTo';
 
 const Wrapper = styled.div`
-  padding: 0px 20px 0 35vw;
+  padding: 0px 20px 0 0;
   height: auto;
   //min-height: 600px;
   width: auto;

@@ -46,12 +46,11 @@ const ServicesWrapper = styled(animated.div)`
   position: absolute;
   width: auto;
   height: auto;
-  top: 630px;
-  left: -45vw;
-  //background-color: #191919;
+  top: 680px;
+  left: 0vw;
   transition: 0.1s;
   ${respondTo.S`
-    top: 710px;
+    top: 700px;
     left: -52vw;
   `}
 `;
@@ -82,15 +81,14 @@ const ScrollDownImgOverlayer = styled.div`
     top: 0;
   }
 `;
-export default () => {
+export default (props) => {
   const [{ offset }, set] = useSpring(() => ({ offset: 0, config: config.molasses }));
-  const Rotate = i => `rotate(${i * 0.2}deg)`;
-  const hScroll = i => `translateX(-${i * (window.innerWidth > 760 ? 0.1 : 0.2)}px)`;
-  const vScroll = i => `translateY(${i * 0.05}px)`;
-  const hScroll2 = i => `translate3d(${i * 0.02}px, ${i * 0.05}px, 0)`;
-  const ref = useRef();
+  const RotateWheel = i => `rotate(${i * 0.05}deg)`;
+  const hScrollCarousel = i => `translateX(-${i * (window.innerWidth > 760 ? 0 : 0.06)}px)`;
+  const vScrollCarousel = i => `translateY(${i * 0.05}px)`;
+  const ScrollServices = i => `translate3d(${i * 0.015}px, ${i * 0.05}px, 0)`;
   const handleScroll = () => {
-    const posY = ref.current.getBoundingClientRect().top;
+    const posY = props.reference.current.getBoundingClientRect().top;
     const offset = window.pageYOffset - posY;
     set({ offset });
   };
@@ -102,23 +100,23 @@ export default () => {
   });
   return (
       <>
-        <ParallaxWrapper ref={ref}>
+        <ParallaxWrapper>
           <ScrollDownImgOverlayer>
             <ScrollDownImg
             style={{
-              transform: offset.interpolate(Rotate),
+              transform: offset.interpolate(RotateWheel),
             }}
             />
             <div className="Overlayer"></div>
           </ScrollDownImgOverlayer>
           <OurWorkImg
           style={{
-            transform: offset.interpolate(vScroll),
+            transform: offset.interpolate(vScrollCarousel),
           }}
           >
             <Scroll 
             style={{
-              transform: offset.interpolate(hScroll),
+              transform: offset.interpolate(hScrollCarousel),
             }}
             >
               <ScrollImg/>
@@ -126,7 +124,7 @@ export default () => {
           </OurWorkImg>
           <ServicesWrapper 
             style={{
-              transform: offset.interpolate(hScroll2),
+              transform: offset.interpolate(ScrollServices),
             }}
           >
             <Services />

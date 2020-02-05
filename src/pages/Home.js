@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useState, useRef } from "react";
 import {FaFacebookF, FaInstagram, FaTwitter, FaYoutube} from "react-icons/fa";
 import styled from 'styled-components';
 import TitleTop from '../components/TitleTop';
@@ -9,17 +9,17 @@ import ParallaxHome from '../components/ParallaxHome';
 
 const ParallaxWrapper = styled.div`
   background: #0E0E0E;
-  height: 1500px;
+  height: 1600px;
   position: relative;
   transition: 0.1s;
   ${respondTo.S`
-      height: 1350px;
+      height: 1550px;
   `}
   ${respondTo.M`
-      height: 1670px;
+      height: 1700px;
   `}
   ${respondTo.ML`
-      height: 970px;
+      height: 1970px;
   `}
   ${respondTo.L`
     height: 3620px;
@@ -40,6 +40,17 @@ const VideoWrapper = styled.div`
       width: 50VW
     `}
   }
+  .overlayer{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(14, 14, 14, 0.5);
+    ${respondTo.S`
+      width: 50VW
+    `}
+  }
 `;
 const BottomWrapper = styled.div`
   position: relative;
@@ -50,7 +61,7 @@ const BottomWrapper = styled.div`
 `;
 const Social = styled.div`
   width: 100vw;
-  height: 20vw;
+  height: 70px;
   background-color: white;
   display: flex;
   flex-direction: row;
@@ -63,11 +74,11 @@ const Social = styled.div`
     border: none;
     background: transparent;
     width: auto;
-    margin: 0 10vw;
+    margin: 0 5vw;
   }
   .socialLogo{
     color: black;
-    font-size: 8vw;
+    font-size: 40px;
     opacity: 0.7;
     cursor: pointer;
     ${respondTo.S`
@@ -81,17 +92,20 @@ const Social = styled.div`
     }
   }
 `;
-export default () => {
+export default function() {
+  const [ref1] = useState(useRef())
   return (
       <>
+      <div ref={ref1}>
       <VideoWrapper>
         <video src={homeVideo} loop={true} autoPlay={true} playsInline muted plays-inline="true">
             Your browser does not support the video tag.
         </video> 
+        <div className="overlayer"></div>
         <TitleTop title="ainsley studio" subTitle1="photographers" subTitle2="directors" subTitle3="digital content creators"/>
       </VideoWrapper>
       <ParallaxWrapper >
-        <ParallaxHome />
+        <ParallaxHome reference={ref1}/>
       </ParallaxWrapper>
       <BottomWrapper>
         <Social>
@@ -102,6 +116,7 @@ export default () => {
         </Social>
         <Footer />
       </BottomWrapper>
+      </div>
     </>
   );
 };
