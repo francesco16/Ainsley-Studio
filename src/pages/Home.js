@@ -13,10 +13,17 @@ const ParallaxWrapper = styled.div`
   position: relative;
   transition: 0.1s;
   ${respondTo.S`
+<<<<<<< HEAD
       height: 1550px;
   `}
   ${respondTo.M`
       height: 1700px;
+=======
+      height: 1350px;
+  `}
+  ${respondTo.M`
+      height: 1670px;
+>>>>>>> 5c2424397a324668f6d1dbf2787d0b885e2d49da
   `}
   ${respondTo.ML`
       height: 1970px;
